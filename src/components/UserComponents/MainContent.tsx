@@ -52,7 +52,7 @@ export default function MainContent() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#EDEBE6] pt-10">
+    <div className="min-h-screen md:flex items-center justify-center bg-[#EDEBE6] pt-10">
       <div className="max-w-7xl mx-auto px-4 py-12">
         <div className="flex flex-col md:flex-row gap-8 lg:gap-12 items-start justify-center">
           {/* Left Section - Text Content */}
