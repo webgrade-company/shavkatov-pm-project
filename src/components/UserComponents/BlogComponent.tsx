@@ -36,7 +36,7 @@ export default function BlogComponent() {
             {/* CTA Card */}
             <div className="flex justify-center mt-20">
               <Link
-                className="text-2xl w-[230px] font-semibold text-[#383838E5] bg-white border items-center text-center border-gray-200 rounded-lg px-8 py-10 shadow-sm hover:shadow-md transition-shadow cursor-pointer"
+                className="text-2xl w-[230px] font-semibold text-[#383838E5] bg-[#EDEBE6] border items-center text-center border-gray-200 rounded-[5px] px-8 py-10 shadow-hover transition-shadow cursor-pointer"
                 href="/blog"
               >
                 O'qish

@@ -83,7 +83,7 @@ export default function ServiceSection() {
                   transition: "box-shadow 0.5s ease-in-out",
                 }}
                 onClick={() => handleProjectClick(project)}
-                className={`bg-gray-50 rounded-lg p-6  transition-shadow cursor-pointer duration-500 ease-in-out group ${
+                className={`bg-[#EDEBE6] border border-[#C2C2C2E5] rounded-tl-[5px] rounded-tr-[5px] p-6  transition-shadow cursor-pointer duration-500 ease-in-out group ${
                   selectedProject.id === project.id ? "shadow-2xl" : "shadow"
                 }`}
               >
