@@ -102,7 +102,7 @@ export default function ContactComponent() {
               <input
                 type="text"
                 placeholder="Ism"
-                className="w-full px-4 py-3 border border-[#737373] rounded-tl-[1px] rounded-bl-[1px]"
+                className="w-full px-4 focus:outline-none py-3 border border-[#737373] rounded-tl-[1px] rounded-bl-[1px]"
                 {...register("firstName", {
                   required: "Ism kiritish majburiy",
                   minLength: {
@@ -121,7 +121,7 @@ export default function ContactComponent() {
               <input
                 type="text"
                 placeholder="Familya"
-                className="w-full px-4 py-3 border border-[#737373] rounded-tr-[1px] rounded-br-[1px]"
+                className="w-full px-4 py-3 border focus:outline-none border-[#737373] rounded-tr-[1px] rounded-br-[1px]"
                 {...register("lastName", {
                   required: "Familya kiritish majburiy",
                   minLength: {
@@ -147,7 +147,7 @@ export default function ContactComponent() {
                 type="text"
                 placeholder=""
                 maxLength={12}
-                className="flex-1 px-4 py-3 border border-[#737373] border-l-0  rounded-br-[1px] rounded-tr-[1px]"
+                className="flex-1 px-4 py-3 border border-[#737373] border-l-0 focus:outline-none  rounded-br-[1px] rounded-tr-[1px]"
                 {...register("phone", {
                   required: "Telefon raqam kiritish majburiy",
                   pattern: {
@@ -169,7 +169,7 @@ export default function ContactComponent() {
             <input
               type="text"
               placeholder="Telegram Username"
-              className="w-full px-4 py-3 border border-[#737373] rounded-[1px]"
+              className="w-full px-4 focus:outline-none py-3 border border-[#737373] rounded-[1px]"
               {...register("telegram", {
                 required: "Telegram username kiritish majburiy",
                 pattern: {
@@ -190,7 +190,7 @@ export default function ContactComponent() {
             <input
               type="email"
               placeholder="Email"
-              className="w-full px-4 py-3 border border-[#737373] rounded-[1px]"
+              className="w-full px-4 focus:outline-none py-3 border border-[#737373] rounded-[1px]"
               {...register("email", {
                 required: "Email kiritish majburiy",
                 pattern: {
@@ -210,7 +210,7 @@ export default function ContactComponent() {
             <input
               type="text"
               placeholder="Mavzu Nomi"
-              className="w-full px-4 py-3 border border-[#737373] rounded-[1px]"
+              className="w-full px-4 py-3 focus:outline-none border border-[#737373] rounded-[1px]"
               {...register("subject", {
                 required: "Mavzu nomini kiritish majburiy",
                 minLength: {
@@ -230,7 +230,7 @@ export default function ContactComponent() {
             <textarea
               placeholder="Izoh"
               rows={3}
-              className="w-full px-4 py-3 border border-[#737373] rounded-[1px]"
+              className="w-full px-4 py-3 focus:outline-none border border-[#737373] rounded-[1px]"
               {...register("message", {
                 required: "Izoh kiritish majburiy",
                 minLength: {
@@ -258,19 +258,6 @@ export default function ContactComponent() {
 
         <Toaster position="top-right" />
 
-        <div className="float-end">
-          <FaChevronCircleUp
-            className="text-4xl bg-gray-400 border-2 border-gray-400 text-white rounded-full"
-            onClick={() => {
-              const element = document.getElementById("header");
-              if (element) {
-                const y =
-                  element.getBoundingClientRect().top + window.scrollY - 60;
-                window.scrollTo({ top: y, behavior: "smooth" });
-              }
-            }}
-          />
-        </div>
       </div>
     </section>
   );

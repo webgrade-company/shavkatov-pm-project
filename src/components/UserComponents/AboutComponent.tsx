@@ -64,19 +64,6 @@ export default function AboutComponent() {
             </a>
           </div>
 
-          <div className="md:absolute bottom-10 right-auto ml-auto">
-            <FaCircleChevronDown
-              className="text-4xl bg-gray-400 border-2 border-gray-400 text-white rounded-full"
-              onClick={() => {
-                const element = document.getElementById("works");
-                if (element) {
-                  const y =
-                    element.getBoundingClientRect().top + window.scrollY;
-                  window.scrollTo({ top: y, behavior: "smooth" });
-                }
-              }}
-            />
-          </div>
         </div>
       </div>
     </section>

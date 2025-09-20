@@ -196,31 +196,6 @@ export default function ServiceSection() {
           <div className="w-[90%] mx-auto text-center rounded border-1 border-gray-200 text-2xl py-4 px-5 shadow-hover">
             Sizda g’oya bormi?
           </div>
-          <div className="float-end">
-            <FaCircleChevronDown
-              className="text-4xl bg-gray-400 border-2 border-gray-400 text-white rounded-full"
-              onClick={() => {
-                const element = document.getElementById("faq");
-                if (element) {
-                  const y =
-                    element.getBoundingClientRect().top + window.scrollY - 60;
-                  window.scrollTo({ top: y, behavior: "smooth" });
-                }
-              }}
-            />
-          </div>
-        </div>
-        <div className="hidden md:block float-end mt-5">
-          <FaCircleChevronDown
-            className="text-4xl bg-gray-400 border-2 border-gray-400 text-white rounded-full"
-            onClick={() => {
-              const element = document.getElementById("faq");
-              if (element) {
-                const y = element.getBoundingClientRect().top + window.scrollY;
-                window.scrollTo({ top: y, behavior: "smooth" });
-              }
-            }}
-          />
         </div>
       </div>
     </section>

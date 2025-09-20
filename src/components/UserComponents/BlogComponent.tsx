@@ -45,18 +45,6 @@ export default function BlogComponent() {
           </div>
         </div>
       </div>
-      <div className="float-end mr-20">
-        <FaCircleChevronDown
-          className="text-4xl bg-gray-400 border-2 border-gray-400 text-white rounded-full"
-          onClick={() => {
-            const element = document.getElementById("contact");
-            if (element) {
-              const y = element.getBoundingClientRect().top + window.scrollY;
-              window.scrollTo({ top: y, behavior: "smooth" });
-            }
-          }}
-        />
-      </div>
     </section>
   );
 }

@@ -88,7 +88,7 @@ body {
 }
 
 .card {
-  background: #EDEBE6;
+  background: #edebe6;
   border: 1px solid #e5e7eb;
   border-radius: 0.5rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -105,7 +105,7 @@ body {
 }
 
 .card-2 {
-  background: #EDEBE6;
+  background: #edebe6;
   border: 1px solid #e5e7eb;
   border-radius: 0.5rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -126,7 +126,7 @@ body {
   transition: all 0.3s ease-in-out;
 }
 
- /* for projects  */
+/* for projects  */
 .card-shadow {
   transition: all ease-in-out;
 }
@@ -137,15 +137,14 @@ body {
 
 .shadow-pressed {
   box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.3),
-              inset 0 -2px 4px rgba(0, 0, 0, 0.15);
+    inset 0 -2px 4px rgba(0, 0, 0, 0.15);
 }
 
+/* for projects and  */
 
- /* for projects and  */
-
-.shadow-hover:hover {
-  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.3), 
-              inset 0 -1px 2px rgba(0, 0, 0, 0.1);
+.shadow-hover:active {
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.3),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.1);
 }
 
 :root {

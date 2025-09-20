@@ -21,10 +21,10 @@ export default function Card({
         href={href}
         className={`block cursor-pointer bg-[#EDEBE6] rounded-lg py-7 shadow-hover border border-gray-200 transition-all duration-300 hover:scale-105 ${className}`}
       >
-        <h3 className="text-3xl text-center font-bold text-gray-800 mb-1">
+        <h3 className="text-3xl text-center font-bold text-[#383838E5] mb-1">
           {title}
         </h3>
-        <p className="text-gray-600 text-center text-sm">{subtitle}</p>
+        <p className="text-[#BEBEBE] text-center text-sm">{subtitle}</p>
       </Link>
     );
   }
