@@ -10,8 +10,8 @@ export default function AboutComponent() {
           <h2 className="text-5xl gap-0 text-center md:text-start md:text-6xl font-bold text-gray-800 md:mb-10">
             Men haqimda
           </h2>
-          <p className="md:hidden text-[25px] text-center mb-2 font-bold">
-            Assalomu alaykum, Fayzullohman
+          <p className="md:hidden mt-8 text-[25px] text-center mb-2 font-bold">
+            Fayzullohman
           </p>
         </div>
 

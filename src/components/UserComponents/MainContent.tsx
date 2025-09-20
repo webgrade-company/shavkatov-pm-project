@@ -3,6 +3,10 @@ import { useEffect, useState } from "react";
 import Card from "./Card";
 import { FaCircleChevronDown } from "react-icons/fa6";
 import { FaChevronCircleUp } from "react-icons/fa";
+import { IoChevronUpCircleOutline } from "react-icons/io5";
+import { IoIosArrowDropdown } from "react-icons/io";
+
+
 
 export default function MainContent() {
   const allIds = ["header", "about", "works", "faq", "blog", "contact"];
@@ -105,13 +109,13 @@ export default function MainContent() {
 
         <div className="fixed z-40 bottom-6 right-6">
           {position === "contact" ? (
-            <FaChevronCircleUp
+            <IoChevronUpCircleOutline
               onClick={handleScroll}
-              className="text-4xl bg-gray-400 border-2 border-gray-400 text-[#EDEBE6] rounded-full active:scale-95 transition-transform"
+              className="text-[43px]  text-gray-400 rounded-full active:scale-95 transition-transform"
             />
           ) : (
-            <FaCircleChevronDown
-              className="text-4xl bg-gray-400 border-2 border-gray-400 text-[#EDEBE6] rounded-full active:scale-95 transition-transform"
+            <IoIosArrowDropdown
+              className="text-[43px]  text-gray-400 rounded-full active:scale-95 transition-transform"
               onClick={handleScroll}
             />
           )}
