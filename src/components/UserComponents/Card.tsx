@@ -19,7 +19,7 @@ export default function Card({
     return (
       <Link
         href={href}
-        className={`block cursor-pointer bg-[#EDEBE6] rounded-lg py-7 shadow-sm border border-gray-200 hover:shadow-md hover:bg-gray-100 transition-all duration-300 hover:scale-105 ${className}`}
+        className={`block cursor-pointer bg-[#EDEBE6] rounded-lg py-7 shadow-hover border border-gray-200 transition-all duration-300 hover:scale-105 ${className}`}
       >
         <h3 className="text-3xl text-center font-bold text-gray-800 mb-1">
           {title}
@@ -38,7 +38,7 @@ export default function Card({
           window.scrollTo({ top: y, behavior: "smooth" });
         }
       }}
-      className={`block cursor-pointer bg-[#EDEBE6] rounded-lg py-7 shadow-sm border border-gray-200 hover:shadow-md hover:bg-gray-100 transition-all duration-300 hover:scale-105 ${className}`}
+      className={`block cursor-pointer bg-[#EDEBE6] rounded-lg py-7 shadow-sm border border-gray-200 shadow-hover transition-all duration-300 hover:scale-105 ${className}`}
     >
       <h3 className="text-3xl text-center font-bold text-[#383838E5] mb-1">
         {title}

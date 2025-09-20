@@ -81,6 +81,10 @@ export default function ServiceSection() {
                 key={project.id}
                 style={{
                   transition: "box-shadow 0.5s ease-in-out",
+                  boxShadow:
+                    selectedProject.id === project.id
+                      ? "inset 4px 4px 8px rgba(0, 0, 0, 0.25), inset -1px -1px 2px rgba(0, 0, 0, 0.1)"
+                      : "0 2px 6px rgba(0, 0, 0, 0.15)",
                 }}
                 onClick={() => handleProjectClick(project)}
                 className={`bg-[#EDEBE6] border border-[#C2C2C2E5] rounded-tl-[5px] rounded-tr-[5px] p-6  transition-shadow cursor-pointer duration-500 ease-in-out group ${
