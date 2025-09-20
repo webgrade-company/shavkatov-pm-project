@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const SuccessPage = () => {
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-[#EDEBE6] md:flex pt-15 md:pt-0 items-center justify-center p-4">
       <div className="p-8 max-w-md w-full text-center">
         {/* Success Icon */}
         <div className="mb-6 flex justify-center">
