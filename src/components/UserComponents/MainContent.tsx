@@ -107,11 +107,11 @@ export default function MainContent() {
           {position === "contact" ? (
             <FaChevronCircleUp
               onClick={handleScroll}
-              className="text-4xl bg-gray-400 border-2 border-gray-400 text-[#EDEBE6] rounded-full shadow-md active:scale-95 transition-transform"
+              className="text-4xl bg-gray-400 border-2 border-gray-400 text-[#EDEBE6] rounded-full active:scale-95 transition-transform"
             />
           ) : (
             <FaCircleChevronDown
-              className="text-4xl bg-gray-400 border-2 border-gray-400 text-[#EDEBE6] rounded-full shadow-md active:scale-95 transition-transform"
+              className="text-4xl bg-gray-400 border-2 border-gray-400 text-[#EDEBE6] rounded-full active:scale-95 transition-transform"
               onClick={handleScroll}
             />
           )}
