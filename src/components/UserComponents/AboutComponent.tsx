@@ -4,7 +4,7 @@ import AdminImage from "./adminImageComponent";
 
 export default function AboutComponent() {
   return (
-    <section id="about" className=" relative bg-[#EDEBE6] min-h-screen">
+    <section id="about" className=" relative bg-[#EDEBE6]  2xl:flex justify-center items-center min-h-screen">
       <div className="mx-auto max-w-7xl px-7 py-16 md:pt-30">
         <div className="flex flex-col">
           <h2 className="text-5xl gap-0 text-center md:text-start md:text-6xl font-bold text-gray-800 md:mb-10">

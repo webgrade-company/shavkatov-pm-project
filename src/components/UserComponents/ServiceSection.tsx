@@ -65,7 +65,7 @@ export default function ServiceSection() {
   };
 
   return (
-    <section id="works" className="bg-[#EDEBE6] py-16 md:py-24">
+    <section id="works" className="bg-[#EDEBE6] min-h-screen flex justify-center items-center py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-4">
         {/* Title */}
         <h2 className="text-4xl md:text-6xl font-bold text-gray-800 mb-16">
