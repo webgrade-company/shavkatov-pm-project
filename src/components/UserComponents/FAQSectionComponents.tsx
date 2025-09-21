@@ -18,12 +18,12 @@ const FAQSectionComponents = () => {
         <Faq1 />
         <div className="w-full flex justify-center items-center">
           <a
-            className="text-2xl shadow-hover card-3"
+            className="text-[25px] text-[#737373] font-bold shadow-hover card-3 "
             href="https://t.me/shavkatovpm_bot"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Botga utish
+            Savol Berish
           </a>
         </div>
       </div>

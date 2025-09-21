@@ -249,7 +249,7 @@ export default function ContactComponent() {
           <div className="flex justify-center mt-8">
             <button
               type="submit"
-              className="text-[#737373] font-semibold w-1/2 border-2 shadow-hover border-[#737373]  py-3 px-12 rounded-[1px] transition-colors duration-200"
+              className="text-[#737373] opacity-[50%] font-bold w-1/2 border-2 shadow-hover border-[#737373]  py-3 px-12 rounded-[1px] transition-colors duration-200"
             >
               Yuborish
             </button>
@@ -257,7 +257,6 @@ export default function ContactComponent() {
         </form>
 
         <Toaster position="top-right" />
-
       </div>
     </section>
   );
