@@ -61,9 +61,18 @@ const NavbarLayout = () => {
             {navItems.map((item) => (
               <span
                 key={item.href}
-                className={`cursor-pointer hover:opacity-[75%] ${
-                  active == item.href ? "opacity-[100%]" : "opacity-[50%]"
-                }`}
+                style={{
+                  transition: "opacity 0.5s ease-in-out",
+                  opacity: active == item.href ? 1 : 0.5,
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.opacity = "1";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.opacity =
+                    active == item.href ? "1" : "0.5";
+                }}
+                className="cursor-pointer"
                 onClick={() => {
                   setActive(item.href);
                   const element = document.getElementById(item.href);

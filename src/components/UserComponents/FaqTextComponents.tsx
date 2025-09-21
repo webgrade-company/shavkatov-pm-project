@@ -12,33 +12,39 @@ import {
 const items = [
   {
     id: "1",
-    title: "What makes MVPBlocks different?",
+    title: "IT loyiha boshqaruvi (PM) nima?",
     content:
-      "MVPBlocks is a fully open-source, developer-first component library built using Next.js and TailwindCSS, designed to help you launch your MVPs in record time. No bloated packages, no unnecessary installs—just clean, copyable code to plug right into your next big thing.",
+      "IT loyiha boshqaruvi bu loyiha rejaga muvofiq, vaqtida va sifatli tugallanishini ta’minlaydigan jarayondir. Project Manager yoki qisqa qilib PM loyiha boshlig‘i hisoblanadi. U jamoani boshqaradi, mijoz bilan muloqot qiladi, vazifalarni taqsimlaydi va hammasi reja asosida ketishini nazorat qiladi.",
   },
   {
     id: "2",
-    title: "How can I customize the components?",
+    title: "Agile va Waterfall o‘rtasidagi farq qanday?",
     content:
-      "All components are built with Tailwind CSS, making them highly customizable. Simply modify the class names or use our theme variables to match your brand. Components also support both light and dark modes out of the box.",
+      "Waterfall usulida ishlar qat’iy ketma-ketlikda bajariladi. Avval reja tuziladi, keyin dizayn qilinadi, keyin dasturlash va test qilinadi. Orqaga qaytish qiyin. Agile usulida esa loyiha kichik qismlarga bo‘linib bajariladi. Har safar tayyor qilingan bo‘lak mijozga ko‘rsatiladi va kerak bo‘lsa o‘zgarish kiritiladi.",
   },
   {
     id: "3",
-    title: "Are MVPBlocks components responsive?",
+    title: "IT loyihasini qanday boshlash kerak?",
     content:
-      "Absolutely! All components are designed to be fully responsive and work beautifully on all devices, from mobile phones to large desktop screens. We've carefully crafted each component to provide an optimal experience regardless of screen size.",
+      "Avvalo loyiha maqsadini aniq belgilash kerak. Keyin kimlar uchun mo‘ljallanganini aniqlash lozim. Shundan so‘ng kerakli funksiyalar ro‘yxati tuziladi. Texnologiya va jamoa tanlanadi.",
   },
   {
     id: "4",
-    title: "Can I use MVPBlocks for commercial projects?",
+    title: "Jamoa bilan samarali ishlash uchun nima qilish kerak?",
     content:
-      "Yes, all MVPBlocks components are free to use for both personal and commercial projects. No attribution required—just build and launch your MVP faster than ever before.",
+      "Jamoada vazifalar aniq taqsimlanishi kerak. Doimiy aloqa qilish juda muhim. Har bir a’zo nima qilayotganini boshqalar ko‘rib turishi kerak. Shu bilan birga ochiq gaplashish va bir-biriga yordam berish muhitini yaratish jamoani samarali qiladi.",
   },
   {
     id: "5",
-    title: "How do I get started with MVPBlocks?",
+    title: "IT loyihalarida xavflarni qanday boshqariladi?",
     content:
-      "Simply browse our component library, find the components you need, and copy the code into your project. It's that easy! Our documentation provides clear instructions for installation and usage.",
+      "Xavf bu loyiha davomida paydo bo‘lishi mumkin bo‘lgan muammo. Masalan, deadline'ga ulgurmaslik, jamoa a’zosining ketib qolishi yoki byujet yetarli bo‘lmasligi. Bunday vaziyatlarni boshqarish uchun ularni oldindan yozib chiqish, har biri uchun yechim rejasini tayyorlash va favqulodda holatlar uchun qo‘shimcha vaqt hamda byujet qoldirish kerak bo‘ladi.",
+  },
+  {
+    id: "6",
+    title: "IT loyihasi uchun qanday qilib buyurtma beraman?",
+    content:
+      "Avval o‘z g‘oyangizni aniq yozib chiqing. Unda qanday funksiyalar bo‘lishini ham ro‘yxat qiling. Byujet va muddatni taxminan belgilang. Keyin IT biz bilan bilan bog‘lanib, shu talablaringizni tushuntiring. Shartnoma tuzib, bosqichma-bosqich ishlashni boshlash kerak bo‘ladi.",
   },
 ];
 

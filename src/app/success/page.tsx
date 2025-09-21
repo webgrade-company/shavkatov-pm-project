@@ -34,13 +34,13 @@ const SuccessPage = () => {
         {/* Buttons */}
         <div className="space-y-3 flex flex-col">
           <Link href="/blog">
-            <button className="w-1/2 cursor-pointer py-2 px-3 md:px-6 border-2 border-[#737373] text-[#737373] rounded-[1px] hover:bg-[#EDEBE6] transition-colors duration-200">
+            <button className="w-1/2 bg-[#EDEBE6] opacity-75 shadow-hover cursor-pointer py-2 px-3 md:px-6 border-2 border-[#737373] text-[#737373] rounded-[1px] hover:opacity-100 transition-opacity duration-500">
               Ma'qolalar
             </button>
           </Link>
 
           <Link href="/">
-            <button className="w-1/2 cursor-pointer py-2 mt-3 px-3 md:px-6 border-2 border-[#737373] text-[#737373] rounded-[1px] hover:bg-[#EDEBE6] transition-colors duration-200">
+            <button className="w-1/2 cursor-pointer opacity-75 shadow-hover bg-[#EDEBE6] py-2 mt-3 px-3 md:px-6 border-2 border-[#737373] text-[#737373] rounded-[1px] hover:opacity-100 transition-colors duration-200">
               Asosiy sahifa
             </button>
           </Link>

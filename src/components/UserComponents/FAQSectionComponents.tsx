@@ -16,6 +16,16 @@ const FAQSectionComponents = () => {
           </h2>
         </div>
         <Faq1 />
+        <div className="w-full flex justify-center items-center">
+          <a
+            className="text-2xl shadow-hover card-3"
+            href="https://t.me/shavkatovpm_bot"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Botga utish
+          </a>
+        </div>
       </div>
     </section>
   );

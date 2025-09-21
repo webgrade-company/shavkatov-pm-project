@@ -4,7 +4,10 @@ import AdminImage from "./adminImageComponent";
 
 export default function AboutComponent() {
   return (
-    <section id="about" className=" relative bg-[#EDEBE6]  2xl:flex justify-center items-center min-h-screen">
+    <section
+      id="about"
+      className=" relative bg-[#EDEBE6]  2xl:flex justify-center items-center min-h-screen"
+    >
       <div className="mx-auto max-w-7xl px-7 py-16 md:pt-30">
         <div className="flex flex-col">
           <h2 className="text-5xl gap-0 text-center md:text-start md:text-6xl font-bold text-gray-800 md:mb-10">
@@ -20,22 +23,20 @@ export default function AboutComponent() {
         </div>
 
         <div className="flex flex-col cursor-pointer lg:flex-row justify-end lg:gap-16 items-center">
-          <div
-            onClick={() => {
-              window.open("https://t.me/shavkatovpm_bot", "_blank");
+          <button
+            className="text-2xl shadow-hover card hidden  bg-[#EDEBE6] md:block cursor-pointer font-bold text-[#383838E5"
+            onClick={(e) => {
+              e.stopPropagation();
+              const element = document.getElementById("contact");
+              if (element) {
+                const y =
+                  element.getBoundingClientRect().top + window.scrollY - 30;
+                window.scrollTo({ top: y, behavior: "smooth" });
+              }
             }}
-            className="card hidden  bg-[#EDEBE6] md:block"
           >
-            <a
-              className="text-2xl bg-[#EDEBE6 font-bold text-[#383838E5"
-              href="https://t.me/shavkatovpm_bot"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={(e) => e.stopPropagation()}
-            >
-              Bog’lanish
-            </a>
-          </div>
+            Bog’lanish
+          </button>
 
           {/* Right: Text paragraphs */}
           <div className="md:w-1/2 md:h-90 text-gray-700 flex flex-col  justify-between text md:text-2xl font-semibold leading-relaxed">
@@ -47,23 +48,29 @@ export default function AboutComponent() {
             </p>
             <hr className="md:hidden border border-black" />
             <p className="mt-5">
-              Asosan Linear’dan foydalanganaman. Shuningdek Jira va ClickUp’da
+              Asosan Linear’dan foydalanaman. Shuningdek Jira va ClickUp’da
               ishlash tajribam bor. Dokumentatsiya uchun Notion, jamoaviy
-              hamkorlikda esa GitHub’dan foydalanaman.
+              hamkorlikda esa Github.
             </p>
           </div>
 
-          <div className="card-2 md:hidden bg-[#EDEBE6] ">
-            <a
-              href="https://t.me/shavkatovpm_bot"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-2xl bg-[#EDEBE6 font-bold text-[#383838E5]"
+          <div className="md:hidden mt-10 bg-[#EDEBE6] ">
+            <button
+              onClick={() => {
+                const element = document.getElementById("contact");
+                if (element) {
+                  const y =
+                    element.getBoundingClientRect().top + window.scrollY - 30;
+                  window.scrollTo({ top: y, behavior: "smooth" });
+                }
+              }}
+              className="text-2xl shadow-hover font-bold text-[#383838E5] bg-[#EDEBE6] 
+             px-6 py-3 rounded 
+             "
             >
               Bog’lanish
-            </a>
+            </button>
           </div>
-
         </div>
       </div>
     </section>

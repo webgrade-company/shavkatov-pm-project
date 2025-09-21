@@ -121,6 +121,22 @@ body {
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 }
 
+.card-3 {
+  background: #edebe6;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 12px 28px;
+  text-align: center;
+
+  /* transition */
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.card-3:hover {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
 .shadow-hover {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease-in-out;
