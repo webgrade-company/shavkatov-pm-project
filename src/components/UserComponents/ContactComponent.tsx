@@ -138,18 +138,18 @@ export default function ContactComponent() {
           {/* Phone */}
           <div>
             <div className="flex">
-              <span className="inline-flex items-center px-3 py-3 border border-r-0 border-[#737373] text-[#737373] rounded-bl-[1px] rounded-tl-[1px]">
+              <span className="inline-flex items-center px-3 py-3 border border-r-0 border-[#737373] text-[#b3b3b3] rounded-bl-[1px] rounded-tl-[1px]">
                 +998
               </span>
               <input
                 type="text"
                 placeholder=""
                 maxLength={12}
-                className="flex-1 px-4 py-3 border text-[#737373] border-[#737373] border-l-0 focus:outline-none  rounded-br-[1px] rounded-tr-[1px]"
+                className="flex-1  py-3 border text-[#737373] border-[#737373] border-l-0 focus:outline-none  rounded-br-[1px] rounded-tr-[1px]"
                 {...register("phone", {
                   required: "Telefon raqam kiritish majburiy",
                   pattern: {
-                    value: /^\d{2}\s\d{3}\s\d{2}\s\d{2}$/,
+                    value: /^[\d\s]+$/,
                     message: "9 ta raqam kiriting",
                   },
                 })}
@@ -171,10 +171,20 @@ export default function ContactComponent() {
               {...register("telegram", {
                 required: "Telegram username kiritish majburiy",
                 pattern: {
-                  value: /^@?[a-zA-Z0-9_]{5,}$/,
-                  message: "To'g'ri telegram username kiriting",
+                  value: /^@[a-zA-Z0-9_]{5,}$/,
+                  message:
+                    "Telegram username @ bilan boshlanishi va kamida 6 belgidan iborat bo‘lishi kerak",
                 },
               })}
+              onClick={(e) => {
+                if (!(e.target as HTMLInputElement).value.startsWith("@")) {
+                  (e.target as HTMLInputElement).value = "@";
+                }
+              }}
+              onChange={(e) => {
+                const input = e.target as HTMLInputElement;
+                input.value = "@" + input.value.replace(/@/g, "").slice(0);
+              }}
             />
             {errors.telegram && (
               <p className="text-red-500 text-sm mt-1">
