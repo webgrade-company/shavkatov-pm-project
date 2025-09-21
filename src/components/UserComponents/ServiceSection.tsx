@@ -65,7 +65,10 @@ export default function ServiceSection() {
   };
 
   return (
-    <section id="works" className="bg-[#EDEBE6] min-h-screen flex justify-center items-center py-16 md:py-24">
+    <section
+      id="works"
+      className="bg-[#EDEBE6] min-h-screen flex justify-center items-center py-16 md:py-24"
+    >
       <div className="mx-auto max-w-7xl px-4">
         {/* Title */}
         <h2 className="text-4xl md:text-6xl font-bold text-gray-800 mb-16">
@@ -193,7 +196,7 @@ export default function ServiceSection() {
             </div>
           ))}
 
-          <div className="w-[90%] mx-auto text-center rounded border-1 border-gray-200 text-2xl py-4 px-5 shadow-hover">
+          <div className="w-[213px] text-[20px] mx-auto text-center rounded border-1 border-gray-200 text-[#737373] font-bold py-4 px-4 shadow-hover">
             Sizda g’oya bormi?
           </div>
         </div>

@@ -24,7 +24,7 @@ export default function AboutComponent() {
 
         <div className="flex flex-col cursor-pointer lg:flex-row justify-end lg:gap-16 items-center">
           <button
-            className="text-2xl shadow-hover card hidden  bg-[#EDEBE6] md:block cursor-pointer font-bold text-[#383838E5"
+            className="text-[35px] w-[100px] shadow-hover card hidden text-[#383838E5]  bg-[#EDEBE6] md:block cursor-pointer font-bold"
             onClick={(e) => {
               e.stopPropagation();
               const element = document.getElementById("contact");
@@ -64,8 +64,8 @@ export default function AboutComponent() {
                   window.scrollTo({ top: y, behavior: "smooth" });
                 }
               }}
-              className="text-2xl shadow-hover font-bold text-[#383838E5] bg-[#EDEBE6] 
-             px-6 py-3 rounded 
+              className="text-[15px] shadow-hover font-bold text-[#737373] bg-[#EDEBE6] 
+             px-6 py-3 rounded-[5px] 
              "
             >
               Bog’lanish
