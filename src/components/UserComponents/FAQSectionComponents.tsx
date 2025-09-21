@@ -16,7 +16,7 @@ const FAQSectionComponents = () => {
           </h2>
         </div>
         <Faq1 />
-        <div className="md:hidden w-full flex justify-center items-center">
+        <div className="md:hidden mt-8 w-full flex justify-center items-center">
           <a
             className="text-[25px] text-[#737373] font-bold shadow-hover card-3 "
             href="https://t.me/shavkatovpm_bot"
