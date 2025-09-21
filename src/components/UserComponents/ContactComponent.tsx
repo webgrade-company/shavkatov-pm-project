@@ -37,7 +37,7 @@ export default function ContactComponent() {
     try {
       setLoading(true);
       await fetch(
-        "https://script.google.com/macros/s/AKfycbzBuKyowSp4SWAqA5fljnvI7_xsVU0qZHlGX5MiMI9Cg9aev9VTddJkpzbKd693nSBZ/exec",
+        "https://script.google.com/macros/s/AKfycbxFMLt8KkiGyLdmOYt6Ngtvazv9xppRyamVOWUA5tMRhPJxIkHzkJoFXUJmgmFhy0lwXw/exec",
         {
           method: "POST",
           mode: "no-cors",
