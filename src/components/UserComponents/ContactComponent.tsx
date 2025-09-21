@@ -138,7 +138,7 @@ export default function ContactComponent() {
           {/* Phone */}
           <div>
             <div className="flex">
-              <span className="inline-flex items-center px-3 py-3 border border-r-0 border-[#737373] text-[#b3b3b3] rounded-bl-[1px] rounded-tl-[1px]">
+              <span className="inline-flex items-center pl-3 pr-1 py-3 border border-r-0 border-[#737373] text-[#b3b3b3] rounded-bl-[1px] rounded-tl-[1px]">
                 +998
               </span>
               <input
