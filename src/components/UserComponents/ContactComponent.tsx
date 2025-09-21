@@ -7,6 +7,7 @@ import { FaChevronCircleUp } from "react-icons/fa";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import LoadingComponent from "../LoadingComponent";
+import { useBot } from "@/service";
 
 interface ContactForm {
   firstName: string;
@@ -27,6 +28,7 @@ export default function ContactComponent() {
   } = useForm<ContactForm>();
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+  const { mutate } = useBot();
 
   const onSubmit = async (data: ContactForm) => {
     // Form submission logic
@@ -45,12 +47,8 @@ export default function ContactComponent() {
           body: JSON.stringify(data),
         }
       );
-      toast.success("Xabar muvaffaqiyatli yuborildi!");
-
-      // 2 sekund kutib success sahifasiga o'tish
-      setTimeout(() => {
-        router.push("/success");
-      }, 2000);
+      mutate(data);
+      router.push("/success");
     } catch (error) {
       console.log(error);
       toast.error("Xatolik yuz berdi");
@@ -87,7 +85,7 @@ export default function ContactComponent() {
     <section id="contact" className="py-16 md:py-24 bg-[#EDEBE6]">
       <div className="mx-auto max-w-4xl px-4">
         {/* Title */}
-        <h2 className="text-4xl text-center md:text-6xl font-bold text-gray-800 mb-12">
+        <h2 className="text-4xl text-center md:text-6xl font-bold text-[#4A4A4A] mb-12">
           Gaplashamizmi?
         </h2>
 
@@ -102,7 +100,7 @@ export default function ContactComponent() {
               <input
                 type="text"
                 placeholder="Ism"
-                className="w-full px-4 focus:outline-none py-3 border border-[#737373] rounded-tl-[1px] rounded-bl-[1px]"
+                className="w-full px-4 focus:outline-none text-[#737373] py-3 border border-[#737373] rounded-tl-[1px] rounded-bl-[1px]"
                 {...register("firstName", {
                   required: "Ism kiritish majburiy",
                   minLength: {
@@ -121,7 +119,7 @@ export default function ContactComponent() {
               <input
                 type="text"
                 placeholder="Familya"
-                className="w-full px-4 py-3 border focus:outline-none border-[#737373] rounded-tr-[1px] rounded-br-[1px]"
+                className="w-full px-4 py-3 border text-[#737373] focus:outline-none border-[#737373] rounded-tr-[1px] rounded-br-[1px]"
                 {...register("lastName", {
                   required: "Familya kiritish majburiy",
                   minLength: {
@@ -140,14 +138,14 @@ export default function ContactComponent() {
           {/* Phone */}
           <div>
             <div className="flex">
-              <span className="inline-flex items-center px-3 py-3 border border-r-0 border-[#737373] text-gray-500 rounded-bl-[1px] rounded-tl-[1px]">
+              <span className="inline-flex items-center px-3 py-3 border border-r-0 border-[#737373] text-[#737373] rounded-bl-[1px] rounded-tl-[1px]">
                 +998
               </span>
               <input
                 type="text"
                 placeholder=""
                 maxLength={12}
-                className="flex-1 px-4 py-3 border border-[#737373] border-l-0 focus:outline-none  rounded-br-[1px] rounded-tr-[1px]"
+                className="flex-1 px-4 py-3 border text-[#737373] border-[#737373] border-l-0 focus:outline-none  rounded-br-[1px] rounded-tr-[1px]"
                 {...register("phone", {
                   required: "Telefon raqam kiritish majburiy",
                   pattern: {
@@ -169,7 +167,7 @@ export default function ContactComponent() {
             <input
               type="text"
               placeholder="Telegram Username"
-              className="w-full px-4 focus:outline-none py-3 border border-[#737373] rounded-[1px]"
+              className="w-full px-4 focus:outline-none py-3 border text-[#737373] border-[#737373] rounded-[1px]"
               {...register("telegram", {
                 required: "Telegram username kiritish majburiy",
                 pattern: {
@@ -190,7 +188,7 @@ export default function ContactComponent() {
             <input
               type="email"
               placeholder="Email"
-              className="w-full px-4 focus:outline-none py-3 border border-[#737373] rounded-[1px]"
+              className="w-full px-4 focus:outline-none py-3 text-[#737373] border border-[#737373] rounded-[1px]"
               {...register("email", {
                 required: "Email kiritish majburiy",
                 pattern: {
@@ -210,7 +208,7 @@ export default function ContactComponent() {
             <input
               type="text"
               placeholder="Mavzu Nomi"
-              className="w-full px-4 py-3 focus:outline-none border border-[#737373] rounded-[1px]"
+              className="w-full px-4 py-3 focus:outline-none border text-[#737373] border-[#737373] rounded-[1px]"
               {...register("subject", {
                 required: "Mavzu nomini kiritish majburiy",
                 minLength: {
@@ -230,7 +228,7 @@ export default function ContactComponent() {
             <textarea
               placeholder="Izoh"
               rows={3}
-              className="w-full px-4 py-3 focus:outline-none border border-[#737373] rounded-[1px]"
+              className="w-full px-4 py-3 focus:outline-none border text-[#737373] border-[#737373] rounded-[1px]"
               {...register("message", {
                 required: "Izoh kiritish majburiy",
                 minLength: {
@@ -249,7 +247,7 @@ export default function ContactComponent() {
           <div className="flex justify-center mt-8">
             <button
               type="submit"
-              className="text-[#737373] opacity-[50%] font-bold w-1/2 border-2 shadow-hover border-[#737373]  py-3 px-12 rounded-[1px] transition-colors duration-200"
+              className="text-[#737373] hover:opacity-100 opacity-[50%] font-bold w-1/2 border-2 shadow-hover border-[#737373]  py-3 px-12 rounded-[1px] transition-colors duration-200"
             >
               Yuborish
             </button>

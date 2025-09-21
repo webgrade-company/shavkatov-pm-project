@@ -223,3 +223,25 @@ body {
   transform: translateY(0);
   pointer-events: auto;
 }
+
+input:-webkit-autofill {
+  background-color: #EDEBE6 !important;
+  -webkit-box-shadow: 0 0 0px 1000px #EDEBE6 inset !important;
+  -webkit-text-fill-color: #737373 !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+input:-webkit-autofill:focus {
+  background-color: #EDEBE6 !important;
+  -webkit-box-shadow: 0 0 0px 1000px #EDEBE6 inset !important;
+  -webkit-text-fill-color: #737373 !important;
+}
+
+::selection {
+  background: white; /* fon rangi */
+}
+
+/* Firefox uchun maxsus */
+::-moz-selection {
+  background:  white;
+}
