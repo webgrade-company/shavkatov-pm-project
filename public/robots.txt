@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://asiglobalit.com
+
+# Sitemaps
+Sitemap: https://asiglobalit.com/sitemap.xml

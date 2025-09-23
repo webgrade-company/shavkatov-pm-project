@@ -2,8 +2,6 @@
 
 import { useForm } from "react-hook-form";
 import toast, { Toaster } from "react-hot-toast";
-import { FaCircleChevronDown } from "react-icons/fa6";
-import { FaChevronCircleUp } from "react-icons/fa";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import LoadingComponent from "../LoadingComponent";

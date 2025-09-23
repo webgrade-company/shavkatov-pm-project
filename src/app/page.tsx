@@ -1,3 +1,5 @@
+export const dynamic = "force-static";
+
 import HeaderSection from "@/components/UserComponents/HeaderSection";
 import AboutComponent from "@/components/UserComponents/AboutComponent";
 import ServiceSection from "@/components/UserComponents/ServiceSection";
