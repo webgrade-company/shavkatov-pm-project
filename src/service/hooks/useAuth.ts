@@ -3,8 +3,6 @@ import { checkAuth, loginFetch } from "../api"
 import { AuthLogin } from "@/interface"
 
 
-
-
 export const useCheckAuth = () => {
 
   return useQuery({

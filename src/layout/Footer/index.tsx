@@ -20,7 +20,7 @@ const FooterLayout = () => {
   const router = useRouter();
 
   return (
-    <footer className="bg-gray-700 md:h-[241px] flex items-center text-gray-300 py-12">
+    <footer className="bg-[#4b4b4b] md:h-[241px] flex items-center text-gray-300 py-12">
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex flex-col md:flex-row gap-8">
           <div className="sm:hidden flex justify-between items-center">

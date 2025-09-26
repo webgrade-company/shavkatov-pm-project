@@ -6,7 +6,7 @@ export const checkAuth = async () => {
     const res = await customAxios.get("auth/token");
     return res.data;
   } catch (error: any) {
-    throw error;
+    throw error
   }
 };
 
