@@ -11,9 +11,10 @@ export const createBlogApi = async (payload: IBlogCreate) => {
   }
 };
 
-export const getAllBlogApi = async () => {
+export const getAllBlogApi = async (search?: string) => {
   try {
-    const res = await customAxios.get("/blog/all");
+    const url = search ? `/blog/all?search=${search}` : '/blog/all';
+    const res = await customAxios.get(url);
     return res.data;
   } catch (error) {
     throw error;
@@ -36,6 +37,26 @@ export const getByIdBlog = async (id: string) => {
   } catch (error) {
     const err = error as AxiosError<{ message: string }>;
     throw new Error(err.response?.data?.message || "Blogni olishda xatolik");
+  }
+};
+
+export const getSameTags = async (blogId: string) => {
+  try {
+    const res = await customAxios.get(`/blog/sam-tags/${blogId}`);
+    return res.data;
+  } catch (error) {
+    const err = error as AxiosError<{ message: string }>;
+    throw new Error(err.response?.data?.message || "Bloglarni olishda xatolik");
+  }
+};
+
+export const setViewBlogApi = async (id: string) => {
+  try {
+    const res = await customAxios.patch(`/blog/set-view/${id}`);
+    return res.data;
+  } catch (error) {
+    const err = error as AxiosError<{ message: string }>;
+    throw new Error(err.response?.data?.message || "Blog ko'rishini oshirishda xatolik");
   }
 };
 

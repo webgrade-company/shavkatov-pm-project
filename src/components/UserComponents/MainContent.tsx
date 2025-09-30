@@ -5,12 +5,26 @@ import { FaCircleChevronDown } from "react-icons/fa6";
 import { FaChevronCircleUp } from "react-icons/fa";
 import { IoChevronUpCircleOutline } from "react-icons/io5";
 import { IoIosArrowDropdown } from "react-icons/io";
-
-
+import { useSearchParams } from "next/navigation";
 
 export default function MainContent() {
   const allIds = ["header", "about", "works", "faq", "blog", "contact"];
   const [position, setPosition] = useState<null | string>(null);
+
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    const section = searchParams.get("scroll");
+    if (section) {
+      const el = document.getElementById(section);
+      if (el) {
+        el.scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+        });
+      }
+    }
+  }, [searchParams]);
 
   useEffect(() => {
     const sections = document.querySelectorAll("section[id]");

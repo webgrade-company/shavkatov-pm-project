@@ -4,6 +4,8 @@ import {
   createCategoryApi,
   deleteCategoryApi,
   getAllCategoryApi,
+  getCategoryByBlogCountsApi,
+  getCategoryByBlogsApi,
   getByIdCategoryApi,
   updateCategoryApi,
 } from "../api/category";
@@ -51,5 +53,21 @@ export const useDeleteCategory = (id: string) => {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["getAllCategory"] });
     },
+  });
+};
+
+// Extra hooks for blog page
+export const useGetCategoryWithCounts = () => {
+  return useQuery({
+    queryKey: ["getCategoryWithCounts"],
+    queryFn: getCategoryByBlogCountsApi,
+  });
+};
+
+export const useGetBlogsByCategory = (categoryId: string | undefined) => {
+  return useQuery({
+    queryKey: ["getBlogsByCategory", categoryId],
+    queryFn: () => getCategoryByBlogsApi(categoryId as string),
+    enabled: Boolean(categoryId),
   });
 };

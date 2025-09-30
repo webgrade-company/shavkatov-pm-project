@@ -7,6 +7,7 @@ import {
   getAllBlogApi,
   getArchiveBlog,
   getByIdBlog,
+  getSameTags,
   makeArchiveBlogApi,
   updateBlog,
 } from "../api";
@@ -22,10 +23,11 @@ export const useBlogCreate = () => {
   });
 };
 
-export const useGetAllBlog = () => {
+export const useGetAllBlog = (search?: string) => {
   return useQuery({
-    queryKey: ["getAllBlogs"],
-    queryFn: getAllBlogApi,
+    queryKey: ["getAllBlogs", search],
+    queryFn: () => getAllBlogApi(search),
+    enabled: true,
   });
 };
 
@@ -41,6 +43,14 @@ export const useGetByIdBlog = (id: string | undefined) => {
     queryKey: ["getByIdBlog", id],
     queryFn: () => getByIdBlog(id as string),
     enabled: Boolean(id),
+  });
+};
+
+export const useGetSameTags = (blogId: string | undefined) => {
+  return useQuery({
+    queryKey: ["getSameTags", blogId],
+    queryFn: () => getSameTags(blogId as string),
+    enabled: Boolean(blogId),
   });
 };
 

@@ -24,7 +24,7 @@ const AllBlogPage = () => {
     <section className="px-4 py-8">
       <div className="mx-auto max-w-6xl">
         <h2 className="text-center text-4xl mb-10 font-bold text-[#C2C2C2E5]">All Post</h2>
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid break-words grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {blogs.map((blog) => (
             <Link
               href={`/admin/blog/${blog._id}`}

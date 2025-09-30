@@ -34,7 +34,7 @@ const AdminCategoryDeletePage = ({ params }: AdminCategoryDeletePage) => {
           Are you sure you want to delete this post?
         </h2>
         <div className="mx-auto mb-10 max-w-xl rounded border border-[#3F3F3F] bg-[#2E2E2E] p-8">
-          <div className="text-3xl font-extrabold text-[#C2C2C2]">
+          <div className="text-3xl break-words font-extrabold text-[#C2C2C2]">
             {category?.name}
           </div>
         </div>

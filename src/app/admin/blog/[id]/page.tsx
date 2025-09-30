@@ -26,7 +26,7 @@ const BlogDetailPage = ({ params }: { params: Promise<{ id: string }> }) => {
   return (
     <section className="px-4 py-8">
       <div className="mx-auto max-w-3xl">
-        <div className="mb-10 rounded border border-[#3F3F3F] bg-[#2E2E2E] p-8 text-center text-[#C2C2C2]">
+        <div className="mb-10 rounded border break-words border-[#3F3F3F] bg-[#2E2E2E] p-8 text-center text-[#C2C2C2]">
           <h1 className="text-4xl font-extrabold">{blog?.title}</h1>
           <p className="mt-2 text-sm opacity-80">{blog?.subtitle}</p>
         </div>

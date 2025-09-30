@@ -57,3 +57,27 @@ export const deleteCategoryApi = async (id: string) => {
     throw new Error(err.response?.data?.message || "Category o'chirishda xatolik");
   }
 };
+
+export const getCategoryByBlogsApi = async (categoryId: string) => {
+  try {
+    const res = await customAxios.get(`/category/get-blogs/${categoryId}`);
+    return res.data;
+  } catch (error) {
+    const err = error as AxiosError<{ message: string }>;
+    throw new Error(
+      err.response?.data?.message || "Category o'chirishda xatolik"
+    );
+  }
+};
+
+export const getCategoryByBlogCountsApi = async () => {
+  try {
+    const res = await customAxios.get(`/category/with-count`);
+    return res.data;
+  } catch (error) {
+    const err = error as AxiosError<{ message: string }>;
+    throw new Error(
+      err.response?.data?.message || "Categoryni blog count olishda xatolik"
+    );
+  }
+};

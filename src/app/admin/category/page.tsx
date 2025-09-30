@@ -1,13 +1,28 @@
 "use client";
 
+import { useCheckAuth } from "@/service";
 import { useGetAllCategory } from "@/service/hooks/useCategory";
+import { AxiosError } from "axios";
 import Link from "next/link";
-import React from "react";
+import { useRouter } from "next/navigation";
+import React, { useEffect } from "react";
 
 const AdminCategoryListPage = () => {
   const { data, isLoading } = useGetAllCategory();
 
-  if (isLoading) {
+  const { error: tokenError, isLoading: loadingToken } = useCheckAuth();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (tokenError && tokenError instanceof AxiosError) {
+      console.log(tokenError.response?.data?.message);
+      if (tokenError.response?.data?.message === "token not found") {
+        router.push("/");
+      }
+    }
+  }, [tokenError]);
+
+  if (isLoading || loadingToken) {
     return (
       <div className="flex w-full pt-30 flex-col items-center justify-center gap-4">
         <div className="flex h-16 w-16 animate-spin items-center justify-center rounded-full border-4 border-transparent border-t-black text-4xl text-black">
@@ -33,7 +48,7 @@ const AdminCategoryListPage = () => {
         </div>
 
         {/* Category cards */}
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div className="grid grid-cols-1 break-words gap-4 sm:grid-cols-2">
           {categories.map((c) => (
             <Link
               key={c._id}
@@ -50,4 +65,3 @@ const AdminCategoryListPage = () => {
 };
 
 export default AdminCategoryListPage;
-

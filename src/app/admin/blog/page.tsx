@@ -12,7 +12,7 @@ const cards = [
 ];
 
 const BlogPage = () => {
-  const { error: tokenError, data: checkToken, isLoading } = useCheckAuth();
+  const { error: tokenError, isLoading } = useCheckAuth();
   const router = useRouter();
 
   useEffect(() => {
@@ -38,7 +38,7 @@ const BlogPage = () => {
     <section className="min-h-[70vh] px-4 py-10">
       <div className="mx-auto max-w-5xl md:h-100 md:flex justify-center items-center">
         {/* Mobile: stacked; Desktop: spread */}
-        <div className="flex flex-col gap-4 max-w-sm mx-auto md:max-w-none md:grid md:grid-cols-3 md:gap-8 md:place-items-center">
+        <div className="flex break-words flex-col gap-4 max-w-sm mx-auto md:max-w-none md:grid md:grid-cols-3 md:gap-8 md:place-items-center">
           {cards.map((c) => (
             <Link
               key={c.href}

@@ -25,7 +25,7 @@ const ArchivePage = () => {
         <h2 className="text-center text-4xl mb-10 font-bold text-[#C2C2C2E5]">
           All Archive
         </h2>
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 break-words gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {blogs.map((blog) => (
             <Link
               href={`/admin/blog/archive/${blog._id}`}

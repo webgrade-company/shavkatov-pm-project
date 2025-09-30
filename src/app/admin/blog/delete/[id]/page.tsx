@@ -34,7 +34,7 @@ const BlogDeleteConfirmPage = ({
           Are you sure you want to delete this post?
         </h2>
         <div className="mx-auto mb-10 max-w-xl rounded border border-[#3F3F3F] bg-[#2E2E2E] p-8">
-          <div className="text-4xl font-extrabold text-[#C2C2C2]">
+          <div className="text-4xl break-words font-extrabold text-[#C2C2C2]">
             {blog?.title}
           </div>
           <div className="mt-2 text-sm text-[#C2C2C2]/80">
