@@ -1,3 +1,4 @@
+"use client";
 export const dynamic = "force-static";
 
 import HeaderSection from "@/components/UserComponents/HeaderSection";
@@ -10,6 +11,7 @@ import FooterLayout from "@/layout/Footer";
 import { FAQSectionComponents } from "@/components";
 
 export default function Home() {
+
   return (
     <div className="">
       <NavbarLayout />

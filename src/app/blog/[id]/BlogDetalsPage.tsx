@@ -22,7 +22,7 @@ const BlogDetalsPage = ({ id }: { id: string }) => {
 
     const timer = setTimeout(() => {
       setViewBlogApi(blogId).catch(() => {});
-    }, 60000);
+    }, 15000);
 
     return () => clearTimeout(timer);
   }, [blogId]);
