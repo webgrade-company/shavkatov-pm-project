@@ -14,6 +14,18 @@ export const getAllCategoryApi = async () => {
   }
 };
 
+export const getAllCategoryNamesApi = async () => {
+  try {
+    const res = await customAxios.get("/category/all-cateorynames");
+    return res.data;
+  } catch (error) {
+    const err = error as AxiosError<{ message: string }>;
+    throw new Error(
+      err.response?.data?.message || "Categorylar namelarni olishda xatolik"
+    );
+  }
+};
+
 export const createCategoryApi = async (payload: ICreateCategory) => {
   try {
     const res = await customAxios.post("/category/create", payload);

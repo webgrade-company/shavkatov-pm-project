@@ -13,7 +13,6 @@ export default function BlogComponent() {
     >
       <div className="mx-auto max-w-7xl h-150 px-4 flex items-center">
         <div className="lg:grid-cols-2  gap-16 items-center">
-          {/* Left Column - Text */}
           <div className="w-[60%]">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#4A4A4A] leading-tight mb-8">
               IT loyihalarni boshqarish bo'yicha foydali blogni o'qib ko'ring.

@@ -1,22 +1,13 @@
-import { useAppSelector, useStatsSocket } from "@/service/hooks/useStatsSocket";
+"use client";
 import MainContent from "./MainContent";
-import { socket } from "@/lib/socket";
-import { useEffect } from "react";
+import { useSectionStats } from "@/service/hooks/useSectionStats";
 
 export default function HeaderSection() {
-  // useStatsSocket();
 
-  const stats = useAppSelector((state) => state.stats.stats);
+  const sectionRef = useSectionStats("home");
 
-  const sendEvent = () => {
-    socket.emit("events", { name: "MyWebsite", traffic: "google" });
-  };
-
-  useEffect(() => {
-    sendEvent();
-  }, [])
   return (
-    <section id="header">
+    <section id="header" ref={sectionRef}>
       <MainContent />
     </section>
   );

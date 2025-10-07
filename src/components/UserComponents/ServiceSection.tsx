@@ -1,11 +1,13 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ExternalLink } from "lucide-react";
 import { FaCircleChevronDown } from "react-icons/fa6";
-
+import { useSectionStats } from "@/service/hooks/useSectionStats";
+import { useGetAllProjects } from "@/service";
+import LoadingComponent from "../LoadingComponent";
 
 interface Project {
-  id: number;
+  _id: number;
   title: string;
   subtitle: string;
   maqsad: string;
@@ -14,58 +16,35 @@ interface Project {
   url?: string;
 }
 
-const projects: Project[] = [
-  {
-    id: 1,
-    title: "PRETEST",
-    subtitle: "Mock Exam Platform",
-    maqsad:
-      "Loyiha boshqaruvida Agile tamoyillari asos qilib olindi. Moslashuvchanlik va tezkor natijalarni ta’minlash uchun Kanban metodidan foydalanildi. Bu yondashuv jamoaga vazifalarni aniq ko‘rish, ustuvorlikni belgilash va jarayonni uzluksiz yaxshilab borish imkonini berdi. Shuningdek, ishlarni rejalashtirish va monitoring qilishda Linear yordamida progressni kuzatib borish yo‘lga qo‘yildi.",
-    yondashuv:
-      "Loyihada Agile prinsiplari bilan ishlandi. Scrum metodologiyasi qo'llanildi va har bir sprint davomida foydalanuvchi tajribasini yaxshilashga e'tibor qaratildi.",
-    vositalar: ["Linear", "Trello", "SWOT", "Notion", "Google Docs"],
-    url: "https://pretest.example.com",
-  },
-  {
-    id: 2,
-    title: "DENTAL MAP",
-    subtitle: "Stomatologlar branlash",
-    maqsad:
-      "Bemorlarga stomatologlar va klinikalarni tez va qulay tarzda topish imkoniyatini yaratish. Platforma orqali bemorlar joylashuv, xizmatlar va reytinglar asosida mos mutaxassis yoki klinikani tanlay oladi.",
-    yondashuv:
-      "Loyihada Agile prinsiplari bilan ishlandi. Ish jarayonini aniqroq va samarali tashkil etish maqsadida Kanban usulidan foydalanildi. Bu yondashuv jamoaga vazifalarni tartibli rejalashtirish, ustuvorliklarni belgilash va natijalarga bosqichma-bosqich erishishga imkon berdi.",
-    vositalar: ["Linear", "SWOT", "Notion", "Google Docs"],
-    url: "https://dentalmap.example.com",
-  },
-  {
-    id: 3,
-    title: "WEBGRADE",
-    subtitle: "IT Agency",
-    maqsad:
-      "Korxona va brendlar ehtiyojiga mos, zamonaviy dizayn va funksionallikka ega Veb-saytlar, Mobil ilovalar, hamda IT yechimlarni ishlab chiqadigan IT kompaniya. ",
-    yondashuv:
-      "Agile asosida ishlangan loyiha boshqaruvida Scrum qo‘llanildi. Bu yondashuv jamoaga jarayonni nazorat qilish, bosqichma-bosqich rivojlanish va natijalarni muntazam baholash imkoniyatini berdi.",
-    vositalar: ["Linear", "SWOT", "Notion", "Google Docs"],
-    url: "https://webgrade.uz",
-  },
-];
-
 export default function ServiceSection() {
-  const [selectedProject, setSelectedProject] = useState<Project>(projects[0]);
+  const { data, isLoading } = useGetAllProjects();
+
+  const [selectedProject, setSelectedProject] = useState<Project>();
+
+  useEffect(() => {
+    setSelectedProject(data?.data[0]);
+  }, [isLoading])
+
+  const sectionRef = useSectionStats("projects");
 
   const handleProjectClick = (project: Project) => {
     setSelectedProject(project);
   };
 
   const handleShareClick = (e: React.MouseEvent, url?: string) => {
-    e.stopPropagation(); // Kartochka bosilishining oldini olish
+    e.stopPropagation();
     if (url) {
       window.open(url, "_blank");
     }
   };
 
+  if(isLoading){
+    <LoadingComponent />
+  }
+
   return (
     <section
+      ref={sectionRef}
       id="works"
       className="bg-[#EDEBE6] min-h-screen flex justify-center items-center py-16 md:py-24"
     >
@@ -79,19 +58,19 @@ export default function ServiceSection() {
         <div className="hidden lg:grid lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Left Column - Project Cards */}
           <div className="space-y-8">
-            {projects.map((project) => (
+            {data?.data?.map((project: any) => (
               <div
-                key={project.id}
+                key={project?._id}
                 style={{
                   transition: "box-shadow 0.5s ease-in-out",
                   boxShadow:
-                    selectedProject.id === project.id
+                    selectedProject?._id === project._id
                       ? "inset 4px 4px 8px rgba(0, 0, 0, 0.25), inset -1px -1px 2px rgba(0, 0, 0, 0.1)"
-                      : "0 2px 6px rgba(0, 0, 0, 0.15)",
+                      : "0 2px 6px rgba(29, 27, 27, 0.15)",
                 }}
                 onClick={() => handleProjectClick(project)}
                 className={`bg-[#EDEBE6] border border-[#C2C2C2E5] rounded-tl-[5px] rounded-tr-[5px] p-6  transition-shadow cursor-pointer duration-500 ease-in-out group ${
-                  selectedProject.id === project.id ? "shadow-2xl" : "shadow"
+                  selectedProject?._id === project._id ? "shadow-2xl" : "shadow"
                 }`}
               >
                 <div className=" relative flex items-center justify-between mb-4 h-20">
@@ -116,11 +95,11 @@ export default function ServiceSection() {
           </div>
 
           {/* Right Column - Project Details */}
-          <div className="text-gray-700 space-y-8">
+          <div className="text-gray-700 space-y-8 min-h-[260px]">
             {/* Maqsad */}
             <div>
               <h3 className="text-xl font-bold text-gray-800 mb-4">Maqsad</h3>
-              <p className="leading-relaxed">{selectedProject.maqsad}</p>
+              <p className="leading-relaxed">{selectedProject?.maqsad}</p>
             </div>
 
             {/* Yondashuv va metodologiya */}
@@ -128,7 +107,7 @@ export default function ServiceSection() {
               <h3 className="text-xl font-bold text-gray-800 mb-4">
                 Yondashuv va metodologiya
               </h3>
-              <p className="leading-relaxed">{selectedProject.yondashuv}</p>
+              <p className="leading-relaxed">{selectedProject?.yondashuv}</p>
             </div>
 
             {/* Vositalar */}
@@ -137,23 +116,23 @@ export default function ServiceSection() {
                 Vositalar:
               </h3>
               <p className="leading-relaxed">
-                {selectedProject.vositalar.join(", ")}.
+                {selectedProject?.vositalar.join(", ")}.
               </p>
             </div>
           </div>
         </div>
 
         {/* Mobile Layout */}
-        <div className="lg:hidden space-y-6">
-          {projects.map((project) => (
+        <div className="lg:hidden space-y-6 w-80">
+          {data?.data?.map((project: any) => (
             <div
-              key={project.id}
-              className="bg-[#EDEBE6] border border-[#C2C2C2E5] rounded-[5px] p-6 h-[152px] overflow-hidden"
+              key={project.title}
+              className="bg-[#EDEBE6] border border-[#C2C2C2E5] w-full rounded-[5px] p-6 h-[152px] overflow-hidden"
             >
               {/* Project Header */}
               <div className="flex  justify-between gap-4 h-full items-center">
                 {/* Left: Project Info */}
-                <div className="w-1/2 flex flex-col justify-center">
+                <div className="w-[48%] flex flex-col justify-center">
                   <h3 className="text-xl border-[#C2C2C2E5] text-center font-bold text-gray-800 mb-1">
                     {project.title}
                   </h3>
@@ -165,7 +144,7 @@ export default function ServiceSection() {
                 <div className="h-50 border border-[#C2C2C2E5]"></div>
 
                 {/* Right: Details + Share Icon */}
-                <div className="w-1/2 relative h-35 flex flex-col">
+                <div className="w-[48%] relative h-35 flex flex-col">
                   <button
                     onClick={(e) => handleShareClick(e, project.url)}
                     className="absolute top-0 right-0 text-gray-400 hover:text-blue-600 transition-colors p-1 z-10"

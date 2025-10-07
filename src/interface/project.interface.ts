@@ -1,14 +1,17 @@
 export interface ICreateProject {
-  description: string;
-  subtitle: string;
   title: string;
+  subtitle: string;
+  maqsad: string;
+  yondashuv: string;
+  vositalar: string[];
   url: string;
 }
 
 export interface IUpdateProject {
-  description: string;
-  subtitle: string;
   title: string;
+  subtitle: string;
+  maqsad: string;
+  yondashuv: string;
+  vositalar: string[];
   url: string;
 }
-

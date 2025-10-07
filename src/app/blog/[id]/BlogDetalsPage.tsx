@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useGetByIdBlog, useGetSameTags } from "@/service";
 import BlogSideBar from "@/layout/blog/BlogSideBar";
@@ -9,6 +9,7 @@ import { IoEye } from "react-icons/io5";
 import { setViewBlogApi } from "@/service/api/blog";
 import ShareButton from "@/components/blog/ShareButton";
 import { LoadingComponent } from "@/components";
+import { socket } from "@/lib/socket";
 
 const BlogDetalsPage = ({ id }: { id: string }) => {
   const router = useRouter();
@@ -16,6 +17,35 @@ const BlogDetalsPage = ({ id }: { id: string }) => {
 
   const { data, isLoading } = useGetByIdBlog(blogId);
   const { data: sameTags, isLoading: semIsLoading } = useGetSameTags(blogId);
+  const enteredRef = useRef(false);
+
+  useEffect(() => {
+    if (!data?.blog || enteredRef.current) return;
+
+    const enterTime = new Date().toISOString();
+
+    if (!enteredRef.current) {
+      socket.emit("blogStats", {
+        name: data.blog.title,
+        blogId: data.blog._id,
+        event: "enter",
+        time: enterTime,
+      });
+      enteredRef.current = true;
+      console.log("🚀 Sent ENTER event:", "blogs");
+    }
+
+    return () => {
+      const leaveTime = new Date().toISOString();
+      socket.emit("blogStats", {
+        name: data.blog.title,
+        blogId: data.blog._id,
+        event: "leave",
+        time: leaveTime,
+      });
+      console.log("👋 Sent LEAVE event:", "blogs");
+    };
+  }, [data]);
 
   useEffect(() => {
     if (!blogId) return;

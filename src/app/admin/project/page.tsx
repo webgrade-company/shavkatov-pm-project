@@ -10,6 +10,8 @@ import { useRouter } from "next/navigation";
 const AdminProjectListPage = () => {
   const { data, isLoading } = useGetAllProjects();
 
+  console.log(data);
+
   const { error: tokenError } = useCheckAuth();
   const router = useRouter();
 
@@ -36,7 +38,9 @@ const AdminProjectListPage = () => {
     _id: string;
     title: string;
     subtitle: string;
-    description: string;
+    maqsad: string;
+    yondashuv: string;
+    vositalar: string;
     url?: string;
   }[] = data?.data || [];
 
@@ -65,11 +69,11 @@ const AdminProjectListPage = () => {
               href={`/admin/project/${p._id}`}
               className="grid grid-cols-1 gap-0 rounded border border-[#3F3F3F] bg-[#2E2E2E] sm:grid-cols-3 hover:bg-[#343434]"
             >
-              <div className="relative p-6 text-center sm:border-r sm:border-[#3F3F3F]">
-                <div className="text-3xl font-extrabold text-[#C2C2C2E5]">
+              <div className="relative flex flex-col justify-center items-center p-6 text-center sm:border-r sm:border-[#3F3F3F]">
+                <div className="text-3xl font-extrabold break-words text-[#C2C2C2E5]">
                   {p.title}
                 </div>
-                <div className="mt-2 text-sm text-[#C2C2C2]/80">
+                <div className="mt-2 text-sm break-words text-[#C2C2C2]/80">
                   {p.subtitle}
                 </div>
                 {p.url && (
@@ -85,8 +89,21 @@ const AdminProjectListPage = () => {
                   </button>
                 )}
               </div>
-              <div className="col-span-2 p-6 text-sm text-[#C2C2C2]/80">
-                {p.description}
+              <div className="col-span-2 p-6 flex items-center text-sm text-[#C2C2C2]/80">
+                <div>
+                  <span className=" block break-words">
+                    <span className="text-white font-bold">Maqsad:</span>{" "}
+                    {p.maqsad}
+                  </span>
+                  <span className=" block break-words">
+                    <span className="text-white font-bold">Yondashuv:</span>{" "}
+                    {p.yondashuv}
+                  </span>
+                  <span className=" block break-words">
+                    <span className="text-white font-bold">Vositalar:</span>{" "}
+                    {p.vositalar}
+                  </span>
+                </div>
               </div>
             </Link>
           ))}

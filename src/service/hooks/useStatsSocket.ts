@@ -10,6 +10,7 @@ export const useStatsSocket = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    
     socket.on("connect", () => {
       console.log("Socket connected:", socket.id);
     });

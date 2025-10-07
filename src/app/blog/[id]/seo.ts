@@ -1,4 +1,3 @@
-// app/blog/[id]/seo.ts
 import { getByIdBlog } from "@/service/api/blog";
 
 export async function generateBlogMetadata(id: string) {
@@ -32,7 +31,7 @@ export async function generateBlogMetadata(id: string) {
         type: "article",
         images: [
           {
-            url: blog?.image || "/default-blog.png",
+            url: "/logo.png",
             width: 1200,
             height: 630,
             alt: blog?.title || "Blog image",

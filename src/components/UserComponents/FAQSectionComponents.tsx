@@ -2,10 +2,15 @@
 import React from "react";
 import Faq1 from "./FaqTextComponents";
 import { FaCircleChevronDown } from "react-icons/fa6";
+import { useSectionStats } from "@/service/hooks/useSectionStats";
 
 const FAQSectionComponents = () => {
+
+  const sectionRef = useSectionStats("faq");
+
   return (
     <section
+      ref={sectionRef}
       id="faq"
       className=" relative min-h-screen w-full bg-[#EDEBE6] md:flex justify-center items-center"
     >

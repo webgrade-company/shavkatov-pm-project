@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useGetAllBlog, useGetBlogsByCategory } from "@/service";
 import BlogSideBar from "@/layout/blog/BlogSideBar";
 import { debounce } from "@/lib/utils";
@@ -11,14 +11,56 @@ import blogCategoryIcon from "../../../public/blogCategoryIcon.svg";
 import Image from "next/image";
 import NotFoundSearch from "@/components/blog/NotFoundSearch";
 import { LoadingComponent } from "@/components";
+import { socket } from "@/lib/socket";
 
 const BlogPage = () => {
   const [search, setSearch] = useState("");
+  const [traffic, setTraffic] = useState("direct");
   const [activeCategoryId, setActiveCategoryId] = useState<string | undefined>(
     undefined
   );
   const [mobileMode, setMobileMode] = useState<"blogs" | "categories">("blogs");
+  const enteredRef = useRef(false);
 
+  useEffect(() => {
+    // 🔹 document bu yerda mavjud
+    function detectTrafficSource(): string {
+      const ref = document.referrer?.toLowerCase() || "";
+      if (!ref) return "direct";
+      if (ref.includes("google")) return "google";
+      if (ref.includes("yandex")) return "yandex";
+      if (ref.includes("t.me") || ref.includes("telegram")) return "telegram";
+      if (ref.includes("instagram")) return "instagram";
+      return "other";
+    }
+
+    const source = detectTrafficSource();
+    setTraffic(source);
+
+    const enterTime = new Date().toISOString();
+
+    if (!enteredRef.current) {
+      socket.emit("homeSection", {
+        name: "blogs",
+        traffic: source,
+        event: "enter",
+        time: enterTime,
+      });
+      enteredRef.current = true;
+      console.log("🚀 Sent ENTER event:", "blogs");
+    }
+
+    return () => {
+      const leaveTime = new Date().toISOString();
+      socket.emit("homeSection", {
+        name: "blogs",
+        traffic: source,
+        event: "leave",
+        time: leaveTime,
+      });
+      console.log("👋 Sent LEAVE event:", "blogs");
+    };
+  }, []);
 
 
   const [active, setActive] = useState("search");
@@ -61,10 +103,6 @@ const BlogPage = () => {
       }, 400),
     []
   );
-
-  if (isLoading) {
-    return <LoadingComponent />;
-  }
 
   return (
     <section className="pt-12 bg-[#EDEBE6] min-h-[80vh]">

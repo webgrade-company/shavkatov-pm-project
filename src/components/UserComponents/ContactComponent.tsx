@@ -6,6 +6,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import LoadingComponent from "../LoadingComponent";
 import { useBot } from "@/service";
+import { useSectionStats } from "@/service/hooks/useSectionStats";
 
 interface ContactForm {
   firstName: string;
@@ -27,6 +28,8 @@ export default function ContactComponent() {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
   const { mutate } = useBot();
+
+  const sectionRef = useSectionStats("contact");
 
   const onSubmit = async (data: ContactForm) => {
     // Form submission logic
@@ -80,7 +83,7 @@ export default function ContactComponent() {
   }
 
   return (
-    <section id="contact" className="py-16 md:py-24 bg-[#EDEBE6]">
+    <section ref={sectionRef} id="contact" className="py-16 md:py-24 bg-[#EDEBE6]">
       <div className="mx-auto max-w-4xl px-4">
         {/* Title */}
         <h2 className="text-4xl text-center md:text-6xl font-bold text-[#4A4A4A] mb-12">

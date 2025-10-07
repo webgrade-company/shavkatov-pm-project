@@ -1,10 +1,14 @@
 "use client";
-import { FaCircleChevronDown } from "react-icons/fa6";
 import AdminImage from "./adminImageComponent";
+import { useSectionStats } from "@/service/hooks/useSectionStats";
 
 export default function AboutComponent() {
+
+  const sectionRef = useSectionStats("about");
+
   return (
     <section
+      ref={sectionRef}
       id="about"
       className=" relative bg-[#EDEBE6]  2xl:flex justify-center items-center min-h-screen"
     >

@@ -67,6 +67,12 @@ const BlogSideBar = ({
               value={localSearch}
               onFocus={onFocusSearch}
               onChange={handleChange}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  e.preventDefault();
+                }
+              }}
+              autoComplete="off"
               placeholder="Izlash..."
               className="w-full rounded shadow pl-10 pr-3 py-2 text-sm outline-none focus:ring-2 focus:ring-gray-400"
             />
@@ -77,6 +83,7 @@ const BlogSideBar = ({
         <div>
           <div className="space-y-2">
             <button
+              type="button"
               className={`w-full cursor-pointer flex items-center justify-between rounded-md py-2 text-left text-sm`}
               onClick={() => onCategoryClick(undefined)}
             >
@@ -92,6 +99,7 @@ const BlogSideBar = ({
             )}
             {data?.data?.map((item: any) => (
               <button
+                type="button"
                 key={item._id}
                 className={`w-full relative text-center overflow-hidden border md:border-none  border-gray-300 shadow rounded mt-2 lg:mt-auto lg:shadow-none cursor-pointer lg:flex items-center text-[16px] font-bold justify-between text-[#737373] py-2 px-8 lg:px-0 md:text-left`}
                 onClick={() => onCategoryClick(item._id, item.name)}
