@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     address: false,
     telephone: true,
   },
-  metadataBase: new URL("https://asiglobalit.com"),
+  metadataBase: new URL("https://shavkatov.pm"),
   alternates: {
     canonical: "/",
   },
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     siteName: "Shavkatov PM",
     images: [
       {
-        url: "/favicon/favicon-96x96.png",
+        url: "/logo.png",
         width: 1200,
         height: 630,
         alt: "Shavkatov PM - Web Site",
@@ -86,9 +86,6 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  verification: {
-    google: "...", // Google Search Console verification code
-  },
 };
 
 export const viewport: Viewport = {
@@ -103,7 +100,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="uz">
       <head>
         <meta name="author" content="Shavkatov PM" />
         <meta
@@ -125,7 +122,6 @@ export default function RootLayout({
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="application-name" content="Shavkatov PM" />
         {/* canonical is provided via metadata.alternates */}
-        <meta name="google-site-verification" content="..." />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -133,14 +129,8 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Organization",
               name: "Shavkatov PM",
-              url: "https://.../",
-              logo: "https://.../favicon/favicon-96x96.png",
-              sameAs: [""],
-              jobTitle: "Create An Application For Technologies",
-              worksFor: {
-                "@type": "Organization",
-                name: "Shavkatov PM",
-              },
+              url: "https://shavkatov.pm/",
+              logo: "https://shavkatov.pm/favicon/android-chrome-512x512.png",
             }),
           }}
         />

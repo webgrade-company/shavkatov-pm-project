@@ -157,11 +157,11 @@ const PostsPage = () => {
                           {r.multiViews || 0}
                         </td>
                         <td className="border px-2 py-2 sm:px-4 sm:py-3 text-center">
-                          {r.avgTime || 0}
+                          {r.avgTime || 0} s
                         </td>
                         <td className="border px-2 py-2 sm:px-4 sm:py-3 text-center">{`${
                           r.bounceRate || 0
-                        }%`}</td>
+                        } ta`}</td>
                       </tr>
                     ))
                   )}

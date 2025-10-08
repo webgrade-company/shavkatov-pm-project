@@ -175,10 +175,10 @@ const TrafficPage = () => {
                           {r.pageViews ?? r.views ?? 0}
                         </td>
                         <td className="border px-2 py-2 sm:px-4 sm:py-3 text-center">
-                          {r.avgTime ?? r.avg ?? 0}
+                          {r.avgTime ?? r.avg ?? 0} s
                         </td>
                         <td className="border px-2 py-2 sm:px-4 sm:py-3 text-center">
-                          {r.bounceRate ?? r.bounce ?? "0%"}
+                          {r.bounceRate ?? r.bounce ?? "0"} ta
                         </td>
                       </tr>
                     ))

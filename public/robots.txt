@@ -2,8 +2,12 @@
 User-agent: *
 Allow: /
 
+# Disallow admin and internal areas
+Disallow: /admin/
+Disallow: /admin
+
 # Host
-Host: https://asiglobalit.com
+Host: https://shavkatov.pm
 
 # Sitemaps
-Sitemap: https://asiglobalit.com/sitemap.xml
+Sitemap: https://shavkatov.pm/sitemap.xml
