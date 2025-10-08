@@ -1,4 +1,4 @@
-import { Bot } from "@/interface";
+import { Bot } from "@/interface/bot";
 import customAxios from "./customAxios"
 
 
