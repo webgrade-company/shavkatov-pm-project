@@ -1,4 +1,4 @@
-import { IBlogCreate, IBlogUpdate } from "@/interface";
+import { IBlogCreate, IBlogUpdate } from "../../interface";
 import customAxios from "./customAxios";
 import { AxiosError } from "axios";
 

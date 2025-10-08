@@ -1,4 +1,4 @@
-import { Bot } from "@/interface";
+import { Bot } from "../../interface/bot";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { postBot } from "../api";
 

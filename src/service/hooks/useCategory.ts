@@ -1,4 +1,4 @@
-import { ICreateCategory, IUpdateCategory } from "@/interface";
+import { ICreateCategory, IUpdateCategory } from "../../interface";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import {
   createCategoryApi,

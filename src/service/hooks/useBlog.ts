@@ -1,4 +1,4 @@
-import { IBlogCreate, IBlogUpdate } from "@/interface";
+import { IBlogCreate, IBlogUpdate } from "../../interface";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import {
   createBlogApi,

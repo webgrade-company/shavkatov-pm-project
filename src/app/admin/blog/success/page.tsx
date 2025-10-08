@@ -1,12 +1,15 @@
 "use client";
 
-import React from "react";
+import React, { Suspense } from "react";
 import { SuccessComponent } from "@/components/adminComponents";
 import { useSearchParams } from "next/navigation";
 
-const AdminBlogSuccessPage = () => {
+export const dynamic = "force-dynamic";
+
+function SuccessContent() {
   const search = useSearchParams();
   const from = search.get("from");
+
   let title =
     from === "delete"
       ? "Deleted Successfully"
@@ -21,6 +24,12 @@ const AdminBlogSuccessPage = () => {
   return (
     <SuccessComponent backHref="/admin/blog/all">{title}</SuccessComponent>
   );
-};
+}
 
-export default AdminBlogSuccessPage;
+export default function AdminBlogSuccessPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <SuccessContent />
+    </Suspense>
+  );
+}

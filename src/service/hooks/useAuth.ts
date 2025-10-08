@@ -1,6 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { checkAuth, loginFetch, authUpdateApi } from "../api";
-import { AuthLogin, IAuthCreate } from "@/interface";
+import { AuthLogin, IAuthCreate } from "../../interface";
 
 export const useCheckAuth = () => {
   return useQuery({

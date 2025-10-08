@@ -1,4 +1,4 @@
-import { AuthLogin, IAuthCreate } from "@/interface";
+import { AuthLogin, IAuthCreate } from "../../interface";
 import customAxios from "./customAxios";
 import { AxiosError } from "axios";
 

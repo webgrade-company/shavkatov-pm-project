@@ -5,6 +5,8 @@ import { IoChevronUpCircleOutline } from "react-icons/io5";
 import { IoIosArrowDropdown } from "react-icons/io";
 import { useSearchParams } from "next/navigation";
 
+export const dynamic = "force-static";
+
 export default function MainContent() {
   const allIds = ["header", "about", "works", "faq", "blog", "contact"];
   const [position, setPosition] = useState<null | string>(null);

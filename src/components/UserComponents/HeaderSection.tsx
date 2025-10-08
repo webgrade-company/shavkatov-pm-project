@@ -1,4 +1,5 @@
 "use client";
+import { Suspense } from "react";
 import MainContent from "./MainContent";
 import { useSectionStats } from "@/service/hooks/useSectionStats";
 
@@ -8,7 +9,9 @@ export default function HeaderSection() {
 
   return (
     <section id="header" ref={sectionRef}>
-      <MainContent />
+      <Suspense fallback={<div>Loading...</div>}>
+        <MainContent />
+      </Suspense>
     </section>
   );
 }

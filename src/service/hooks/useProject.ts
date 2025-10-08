@@ -1,4 +1,4 @@
-import { ICreateProject, IUpdateProject } from "@/interface";
+import { ICreateProject, IUpdateProject } from "../../interface";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import {
   createProjectApi,
