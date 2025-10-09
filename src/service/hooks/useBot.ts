@@ -1,8 +1,16 @@
-import { Bot } from "../../interface/bot";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { postBot } from "../api";
 
 
+interface Bot {
+  email: string;
+  firstName: string;
+  lastName: string;
+  message: string;
+  phone: string;
+  subject: string;
+  telegram: string
+};
 
 
 export const useBot = () => {
