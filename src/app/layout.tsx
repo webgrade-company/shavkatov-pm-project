@@ -121,6 +121,10 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-title" content="Shavkatov PM" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="application-name" content="Shavkatov PM" />
+        <meta
+          name="google-site-verification"
+          content="9sx62z-QehItGBiQNF42wOqAq5l7BeujRJVDO6spfts"
+        />
         {/* canonical is provided via metadata.alternates */}
         <script
           type="application/ld+json"
