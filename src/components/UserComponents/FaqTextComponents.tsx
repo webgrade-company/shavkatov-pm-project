@@ -2,6 +2,7 @@
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import { PlusIcon } from "lucide-react";
 import { motion } from "framer-motion";
+import React from "react";
 import { cn } from "@/lib/utils";
 import {
   Accordion,
@@ -63,6 +64,55 @@ const fadeInAnimationVariants = {
   }),
 };
 
+// ✅ SHU YERDA FaqItem komponentini yaratamiz:
+const FaqItem = React.memo(({ item, index }: { item: any; index: number }) => (
+  <motion.div
+    custom={index}
+    variants={fadeInAnimationVariants}
+    initial="initial"
+    animate="animate"
+  >
+    <AccordionItem
+      value={item.id}
+      className={cn(
+        "my-1 overflow-hidden !border-b-1 !border-b-[#BEBEBE] px-2 transition-colors"
+      )}
+    >
+      <AccordionPrimitive.Header className="flex">
+        <AccordionPrimitive.Trigger
+          className={cn(
+            "group flex flex-1 items-center justify-between gap-4 py-4 text-left text-base font-medium",
+            "hover:text-primary transition-all duration-300 outline-none",
+            "focus-visible:ring-primary/50 focus-visible:ring-2",
+            "data-[state=open]:text-primary"
+          )}
+        >
+          {item.title}
+          <div className="w-[18px] h-[18px] flex items-center justify-center shrink-0">
+            <PlusIcon
+              size={18}
+              className={cn(
+                "text-primary/70 transition-transform duration-300 ease-out",
+                "group-data-[state=open]:rotate-45"
+              )}
+              aria-hidden="true"
+            />
+          </div>
+        </AccordionPrimitive.Trigger>
+      </AccordionPrimitive.Header>
+      <AccordionContent
+        className={cn(
+          "text-muted-foreground overflow-hidden pt-0 pb-4",
+          "data-[state=open]:animate-accordion-down",
+          "data-[state=closed]:animate-accordion-up"
+        )}
+      >
+        <div className="border-border/30 border-t pt-3">{item.content}</div>
+      </AccordionContent>
+    </AccordionItem>
+  </motion.div>
+));
+
 function Faq1() {
   return (
     <section className="py-3 md:py-16">
@@ -74,66 +124,18 @@ function Faq1() {
           transition={{ duration: 0.5, delay: 0.3 }}
         >
           {/* Decorative gradient */}
-          <div className="bg-primary/10 absolute -top-4 -left-4 -z-10 h-72 w-72 rounded-full blur-3xl" />
-          <div className="bg-primary/10 absolute -right-4 -bottom-4 -z-10 h-72 w-72 rounded-full blur-3xl" />
+          <div className="bg-primary/10 absolute -top-4 -left-4 -z-10 h-72 w-72 rounded-full md:blur-3xl blur-none" />
+          <div className="bg-primary/10 absolute -right-4 -bottom-4 -z-10 h-72 w-72 rounded-full md:blur-3xl blur-none" />
 
           <Accordion
             type="single"
             collapsible
-            className="w-full  rounded-xl backdrop-blur-sm"
+            className="w-full rounded-xl backdrop-blur-sm"
             defaultValue="0"
           >
+            {/* ⬇️ endi shu yerda FaqItem ishlatamiz */}
             {items.map((item, index) => (
-              <motion.div
-                key={item.id}
-                custom={index}
-                variants={fadeInAnimationVariants}
-                initial="initial"
-                whileInView="animate"
-                viewport={{ once: true }}
-              >
-                <AccordionItem
-                  value={item.id}
-                  className={cn(
-                    "my-1 overflow-hidden !border-b-1 !border-b-[#BEBEBE] px-2 transition-colors"
-                  )}
-                >
-                  <AccordionPrimitive.Header className="flex">
-                    <AccordionPrimitive.Trigger
-                      className={cn(
-                        "group flex flex-1 items-center justify-between gap-4 py-4 text-left text-base font-medium",
-                        "hover:text-primary transition-all duration-300 outline-none",
-                        "focus-visible:ring-primary/50 focus-visible:ring-2",
-                        "data-[state=open]:text-primary"
-                      )}
-                    >
-                      {item.title}
-                      <div className="w-[18px] h-[18px] flex items-center justify-center shrink-0">
-                        <PlusIcon
-                          size={18}
-                          className={cn(
-                            "text-primary/70 transition-transform duration-300 ease-out",
-                            "group-data-[state=open]:rotate-45"
-                          )}
-                          style={{ width: "18px", height: "18px" }}
-                          aria-hidden="true"
-                        />
-                      </div>
-                    </AccordionPrimitive.Trigger>
-                  </AccordionPrimitive.Header>
-                  <AccordionContent
-                    className={cn(
-                      "text-muted-foreground overflow-hidden pt-0 pb-4",
-                      "data-[state=open]:animate-accordion-down",
-                      "data-[state=closed]:animate-accordion-up"
-                    )}
-                  >
-                    <div className="border-border/30 border-t pt-3">
-                      {item.content}
-                    </div>
-                  </AccordionContent>
-                </AccordionItem>
-              </motion.div>
+              <FaqItem key={item.id} item={item} index={index} />
             ))}
           </Accordion>
         </motion.div>

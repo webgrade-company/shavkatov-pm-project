@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     siteName: "Shavkatov PM",
     images: [
       {
-        url: "/logo.png",
+        url: "https://www.shavkatovpm.uz/logo.png",
         width: 1200,
         height: 630,
         alt: "Shavkatov PM - Web Site",
@@ -142,6 +142,11 @@ export default function RootLayout({
         />
         <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
         <link rel="shortcut icon" href="/favicon/favicon.ico" />
+        <link
+          rel="icon"
+          type="image/svg+xml"
+          href="https://www.shavkatovpm.uz/favicon/favicon.ico"
+        />
         <link
           rel="apple-touch-icon"
           sizes="180x180"

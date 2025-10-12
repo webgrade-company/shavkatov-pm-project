@@ -175,7 +175,17 @@ export default function ServiceSection() {
             </div>
           ))}
 
-          <div className="w-[213px] text-[20px] mx-auto text-center rounded border-1 border-gray-200 text-[#737373] font-bold py-4 px-4 shadow-hover">
+          <div
+            onClick={() => {
+              const element = document.getElementById("contact");
+              if (element) {
+                const y =
+                  element.getBoundingClientRect().top + window.scrollY - 50;
+                window.scrollTo({ top: y, behavior: "smooth" });
+              }
+            }}
+            className="w-[213px] text-[20px] mx-auto text-center rounded border-1 border-gray-200 text-[#737373] font-bold py-4 px-4 shadow-hover"
+          >
             Sizda g’oya bormi?
           </div>
         </div>

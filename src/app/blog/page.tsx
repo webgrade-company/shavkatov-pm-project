@@ -10,8 +10,8 @@ import { IoChevronUpCircleOutline, IoEye } from "react-icons/io5";
 import blogCategoryIcon from "../../../public/blogCategoryIcon.svg";
 import Image from "next/image";
 import NotFoundSearch from "@/components/blog/NotFoundSearch";
-import { LoadingComponent } from "@/components";
 import { socket } from "@/lib/socket";
+import blogCategoryIcon2 from "../../../public/free-icon-settings-17116966.svg";
 
 const BlogPage = () => {
   const [search, setSearch] = useState("");
@@ -173,11 +173,11 @@ const BlogPage = () => {
                     ""
                   )}
                   <div
-                    className={` relative w-5 h-5 ${
+                    className={` relative w-5 h-5 opacity-70 ${
                       active == "category" ? "" : "mx-auto"
                     }`}
                   >
-                    <Image src={blogCategoryIcon} fill alt="this img" />
+                    <Image src={blogCategoryIcon2} fill alt="this img" />
                   </div>
                 </button>
               </div>
@@ -253,7 +253,7 @@ const BlogPage = () => {
 
                 <IoChevronUpCircleOutline
                   onClick={() => {
-                    window.scrollTo({top: 0, behavior: "smooth"});
+                    window.scrollTo({ top: 0, behavior: "smooth" });
                   }}
                   className="text-[43px] float-end  text-gray-400 rounded-full active:scale-95 transition-transform"
                 />
