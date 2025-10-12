@@ -50,9 +50,9 @@ export const getSameTags = async (blogId: string) => {
   }
 };
 
-export const setViewBlogApi = async (id: string) => {
+export const setViewBlogApi = async (id: string, userId: string) => {
   try {
-    const res = await customAxios.patch(`/blog/set-view/${id}`);
+    const res = await customAxios.patch(`/blog/set-view/${id}`, { userId });
     return res.data;
   } catch (error) {
     const err = error as AxiosError<{ message: string }>;

@@ -10,6 +10,7 @@ import { setViewBlogApi } from "@/service/api/blog";
 import ShareButton from "@/components/blog/ShareButton";
 import { LoadingComponent } from "@/components";
 import { socket } from "@/lib/socket";
+import { v4 as uuidv4 } from "uuid";
 
 const BlogDetalsPage = ({ id }: { id: string }) => {
   const router = useRouter();
@@ -18,6 +19,17 @@ const BlogDetalsPage = ({ id }: { id: string }) => {
   const { data, isLoading } = useGetByIdBlog(blogId);
   const { data: sameTags, isLoading: semIsLoading } = useGetSameTags(blogId);
   const enteredRef = useRef(false);
+
+  const [userId, setUserId] = useState<string | null>(null);
+
+  useEffect(() => {
+    let storedId = localStorage.getItem("userId");
+    if (!storedId) {
+      storedId = uuidv4();
+      localStorage.setItem("userId", storedId);
+    }
+    setUserId(storedId);
+  }, []);
 
   useEffect(() => {
     if (!data?.blog || enteredRef.current) return;
@@ -48,14 +60,14 @@ const BlogDetalsPage = ({ id }: { id: string }) => {
   }, [data]);
 
   useEffect(() => {
-    if (!blogId) return;
+    if (!blogId || !userId) return;
 
     const timer = setTimeout(() => {
-      setViewBlogApi(blogId).catch(() => {});
+      setViewBlogApi(blogId, userId).catch(() => {});
     }, 15000);
 
     return () => clearTimeout(timer);
-  }, [blogId]);
+  }, [blogId, userId]);
 
   const onFocusSearch = () => {
     router.push("/blog");

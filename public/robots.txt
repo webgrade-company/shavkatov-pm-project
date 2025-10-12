@@ -7,7 +7,7 @@ Disallow: /admin/
 Disallow: /admin
 
 # Host
-Host: https://shavkatov.pm
+Host: https://www.shavkatovpm.uz
 
 # Sitemaps
-Sitemap: https://shavkatov.pm/sitemap.xml
+Sitemap: https://www.shavkatovpm.uz/sitemap.xml

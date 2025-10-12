@@ -8,7 +8,7 @@ import { socket } from "@/lib/socket";
  * @param sectionName section yoki page nomi (masalan: "home", "about", "contact")
  * @param threshold kuzatish sezgirligi (0-1 oralig‘ida)
  */
-export function useSectionStats(sectionName: string, threshold = 0.3) {
+export function useSectionStats(sectionName: string, uuid: string, threshold = 0.3) {
   const sectionRef = useRef<HTMLElement | null>(null);
   const enteredRef = useRef(false);
 
@@ -39,6 +39,7 @@ export function useSectionStats(sectionName: string, threshold = 0.3) {
             traffic,
             event: "enter",
             time: enterTime,
+            userId: uuid,
           });
           enteredRef.current = true;
         }
@@ -50,6 +51,7 @@ export function useSectionStats(sectionName: string, threshold = 0.3) {
             traffic,
             event: "leave",
             time: leaveTime,
+            userId: uuid,
           });
           enteredRef.current = false;
         }

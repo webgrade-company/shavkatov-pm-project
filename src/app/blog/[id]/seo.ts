@@ -27,7 +27,7 @@ export async function generateBlogMetadata(id: string) {
       openGraph: {
         title: blog?.title || "Blog",
         description: blog?.subtitle || "",
-        url: `https://shavkatov.pm/blog/${id}`,
+        url: `https://shavkatovpm.uz/blog/${id}`,
         type: "article",
         images: [
           {
@@ -39,7 +39,7 @@ export async function generateBlogMetadata(id: string) {
         ],
       },
       alternates: {
-        canonical: `https://shavkatov.pm/blog/${id}`,
+        canonical: `https://shavkatovpm.uz/blog/${id}`,
       },
     };
   } catch (err) {

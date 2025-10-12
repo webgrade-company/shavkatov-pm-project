@@ -2,9 +2,22 @@
 import { useEffect, useState } from "react";
 import AdminImage from "./adminImageComponent";
 import { useSectionStats } from "@/service/hooks/useSectionStats";
+import { v4 as uuidv4 } from "uuid";
 
 export default function AboutComponent() {
-  const sectionRef = useSectionStats("about");
+  const [userId, setUserId] = useState<string | null>(null);
+
+  useEffect(() => {
+    let storedId = localStorage.getItem("userId");
+    if (!storedId) {
+      storedId = uuidv4();
+      localStorage.setItem("userId", storedId);
+    }
+    setUserId(storedId);
+  }, []);
+
+  // const sectionRef = userId ? useSectionStats("about", userId) : null;
+  const sectionRef = useSectionStats("about", userId ?? "");
 
   const [device, setDevice] = useState<string>("");
 
@@ -30,7 +43,7 @@ export default function AboutComponent() {
 
   return (
     <section
-      ref={sectionRef}
+      ref={sectionRef ?? undefined}
       id="about"
       className=" relative bg-[#EDEBE6]  2xl:flex justify-center items-center h-screen"
     >

@@ -12,6 +12,7 @@ import Image from "next/image";
 import NotFoundSearch from "@/components/blog/NotFoundSearch";
 import { socket } from "@/lib/socket";
 import blogCategoryIcon2 from "../../../public/free-icon-settings-17116966.svg";
+import { v4 as uuidv4 } from "uuid";
 
 const BlogPage = () => {
   const [search, setSearch] = useState("");
@@ -22,8 +23,20 @@ const BlogPage = () => {
   const [mobileMode, setMobileMode] = useState<"blogs" | "categories">("blogs");
   const enteredRef = useRef(false);
 
+  const [userId, setUserId] = useState<string | null>(null);
+
   useEffect(() => {
-    // 🔹 document bu yerda mavjud
+    let storedId = localStorage.getItem("userId");
+    if (!storedId) {
+      storedId = uuidv4();
+      localStorage.setItem("userId", storedId);
+    }
+    setUserId(storedId);
+  }, []);
+
+  useEffect(() => {
+    if (!userId) return;
+
     function detectTrafficSource(): string {
       const ref = document.referrer?.toLowerCase() || "";
       if (!ref) return "direct";
@@ -45,6 +58,7 @@ const BlogPage = () => {
         traffic: source,
         event: "enter",
         time: enterTime,
+        userId: userId,
       });
       enteredRef.current = true;
       console.log("🚀 Sent ENTER event:", "blogs");
@@ -57,11 +71,11 @@ const BlogPage = () => {
         traffic: source,
         event: "leave",
         time: leaveTime,
+        userId: userId,
       });
       console.log("👋 Sent LEAVE event:", "blogs");
     };
-  }, []);
-
+  }, [userId]);
 
   const [active, setActive] = useState("search");
   const [selectedCategoryName, setSelectedCategoryName] = useState("Barchasi");

@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     address: false,
     telephone: true,
   },
-  metadataBase: new URL("https://shavkatov.pm"),
+  metadataBase: new URL("https://www.shavkatovpm.uz"),
   alternates: {
     canonical: "/",
   },
@@ -73,7 +73,7 @@ export const metadata: Metadata = {
       "IT loyiha boshqaruvi va IT xizmatlari | Websayt, Mobil ilova - Shavkatov PM",
     description:
       "Shavkatov PM – IT loyihalarni 0 dan yakunigacha boshqarish va ishlab chiqish xizmati. Websayt yasash, mobil ilova ishlab chiqish, startap uchun IT jamoa va project management yechimlari",
-    images: ["/favicon/favicon-96x96.png"],
+    images: ["https://www.shavkatovpm.uz/logo.png"],
   },
   robots: {
     index: true,
@@ -129,8 +129,8 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Organization",
               name: "Shavkatov PM",
-              url: "https://shavkatov.pm/",
-              logo: "https://shavkatov.pm/favicon/android-chrome-512x512.png",
+              url: "https://shavkatovpm.uz",
+              logo: "https://shavkatovpm.uz/favicon/android-chrome-512x512.png",
             }),
           }}
         />

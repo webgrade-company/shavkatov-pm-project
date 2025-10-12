@@ -29,6 +29,7 @@ export default function BlogComponent() {
                 width={140}
                 height={140}
                 className="opacity-80 h-auto"
+                loading="lazy"
               />
             </div>
 

@@ -5,6 +5,7 @@ import { FaCircleChevronDown } from "react-icons/fa6";
 import { useSectionStats } from "@/service/hooks/useSectionStats";
 import { useGetAllProjects } from "@/service";
 import LoadingComponent from "../LoadingComponent";
+import { v4 as uuidv4 } from "uuid";
 
 interface Project {
   _id: number;
@@ -20,12 +21,24 @@ export default function ServiceSection() {
   const { data, isLoading } = useGetAllProjects();
 
   const [selectedProject, setSelectedProject] = useState<Project>();
+  const [userId, setUserId] = useState<string | null>(null);
 
   useEffect(() => {
     setSelectedProject(data?.data[0]);
-  }, [isLoading])
+  }, [isLoading]);
 
-  const sectionRef = useSectionStats("projects");
+  useEffect(() => {
+    let storedId = localStorage.getItem("userId");
+    if (!storedId) {
+      storedId = uuidv4();
+      localStorage.setItem("userId", storedId);
+    }
+    setUserId(storedId);
+  }, []);
+
+  // const sectionRef = userId ? useSectionStats("projects", userId) : null;
+  const sectionRef = useSectionStats("projects", userId ?? "");
+
 
   const handleProjectClick = (project: Project) => {
     setSelectedProject(project);
@@ -38,13 +51,13 @@ export default function ServiceSection() {
     }
   };
 
-  if(isLoading){
-    <LoadingComponent />
+  if (isLoading) {
+    <LoadingComponent />;
   }
 
   return (
     <section
-      ref={sectionRef}
+      ref={sectionRef ?? undefined}
       id="works"
       className="bg-[#EDEBE6] min-h-screen flex justify-center items-center py-16 md:py-24"
     >
